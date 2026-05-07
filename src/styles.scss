@@ -1,1 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* ═══════════════════════════════════════════
+   Baseline-Token-set 1
+   ═══════════════════════════════════════════ */
+:root {
+  /* ── Roles de Color ── */
+  --color-primary:        #00A781;   /* Verde Primario */
+  --color-primary-low:    #E6F6F2;   /* Verde Primario Bajo */
+  --color-text:           #1A2B3E;   /* Azul Oscuro / Texto Principal */
+  --color-text-secondary: #707E8C;   /* Texto Secundario */
+  --color-text-muted:     #94A3B8;   /* Texto Atenuado / Placeholder */
+  --color-bg:             #F8FAFC;   /* Fondo Aplicación */
+  --color-surface:        #FFFFFF;   /* Fondo Tarjeta / Contenedor */
+  --color-border:         #E2E8F0;   /* Borde Claro */
+
+  /* ── Modo oscuro (tokens listos para usar en @media prefers-color-scheme) ── */
+  --color-primary-dark:       #33C9A0;
+  --color-primary-low-dark:   #0D3328;
+  --color-text-dark:          #E2EAF4;
+  --color-bg-dark:            #0F1923;
+  --color-surface-dark:       #1A2535;
+  --color-border-dark:        #2A3A4E;
+
+  /* ── Tipografía ── */
+  --font-family:           'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs:          0.75rem;    /* 12 px  – Leyendas, texto auxiliar */
+  --font-size-s:           0.875rem;   /* 14 px  – Cuerpo pequeño */
+  --font-size-m:           1rem;       /* 16 px  – Texto base del cuerpo */
+  --font-size-l:           1.25rem;    /* 20 px  – Encabezados de sección */
+  --font-size-xl:          1.5rem;     /* 24 px  – Títulos de página */
+  --font-size-2xl:         2rem;       /* 32 px  – Encabezados display / hero */
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-bold:      700;
+  --line-height-tight:     1.2;        /* Ajustado – encabezados */
+  --line-height-default:   1.5;        /* Predeterminado – cuerpo */
+  --line-height-loose:     1.8;        /* Suelto – bloques multilínea */
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:   0.031rem;   /* ≈ 0.5 px – etiquetas en mayúsculas */
+
+  /* ── Espaciado (incrementos de 4 px) ── */
+  --space-0:  0px;    /* 0  – Cero    */
+  --space-1:  4px;    /* 1  – XXS     */
+  --space-2:  8px;    /* 2  – XS      */
+  --space-3:  16px;   /* 3  – SM      */
+  --space-4:  24px;   /* 4  – MD      */
+  --space-5:  32px;   /* 5  – LG      */
+  --space-6:  40px;   /* 6  – XL      */
+  --space-7:  48px;   /* 7  – 2XL     */
+  --space-8:  64px;   /* 8  – 3XL     */
+
+  /* ── Radios de Borde ── */
+  --radius-none: 0px;
+  --radius-sm:   4px;    /* Campos de entrada, chips pequeños */
+  --radius-md:   8px;    /* Elementos activos de barra lateral */
+  --radius-lg:   12px;   /* Tarjetas y modales */
+  --radius-xl:   16px;   /* Elementos prominentes, botones */
+  --radius-pill: 9999px; /* Insignias, chips de estado */
+
+  /* ── Elevación / Sombras ── */
+  --shadow-flat: none;
+  --shadow-sm:   0 1px 3px 0 rgba(0, 0, 0, .10), 0 1px 2px -1px rgba(0, 0, 0, .10);
+  --shadow-md:   0 4px 6px -1px rgba(0, 0, 0, .10), 0 2px 4px -2px rgba(0, 0, 0, .10);
+  --shadow-lg:   0 10px 15px -3px rgba(0, 0, 0, .10), 0 4px 6px -4px rgba(0, 0, 0, .10);
+
+  /* ── Movimiento ── */
+  --duration-fast: 100ms;   /* Efectos hover, microinteracciones */
+  --duration-base: 200ms;   /* Transiciones estándar de UI */
+  --duration-slow: 400ms;   /* Fade-in modal, animaciones deliberadas */
+}
+
+html {
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}

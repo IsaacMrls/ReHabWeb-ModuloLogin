@@ -1,0 +1,53 @@
+<main class="auth-shell">
+  <section class="brand-panel">
+    <p class="eyebrow">Portal Clínico</p>
+    <h1>Recupera el control de tu operación clínica.</h1>
+    <p class="summary">
+      Ingresa a RehabWeb para concentrar expedientes, seguimiento terapéutico y
+      evidencia clínica desde un único panel.
+    </p>
+
+    <div class="metric-card">
+      <span class="metric-value">24/7</span>
+      <span class="metric-label">Acceso coordinado para doctores y administradores</span>
+    </div>
+  </section>
+
+  <section class="form-panel">
+    <div class="panel-header">
+      <span class="badge">Inicio de sesión</span>
+      <h2>Entra a tu cuenta</h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label class="field">
+        <span>Usuario</span>
+        <input type="text" formControlName="username" placeholder="dr.garcia" />
+        @if (fieldHasError('username')) {
+          <small>Captura tu nombre de usuario.</small>
+        }
+      </label>
+
+      <label class="field">
+        <span>Contraseña</span>
+        <input type="password" formControlName="password" placeholder="Min. 8 caracteres" />
+        @if (fieldHasError('password')) {
+          <small>La contraseña debe tener al menos 8 caracteres.</small>
+        }
+      </label>
+
+      @if (apiError()) {
+        <p class="feedback feedback-error">{{ apiError() }}</p>
+      }
+
+      <button type="submit" class="primary-button" [disabled]="isSubmitting()">
+        {{ isSubmitting() ? 'Validando acceso...' : 'Iniciar sesión' }}
+      </button>
+    </form>
+
+    <p class="switch-link">
+      ¿No tienes cuenta?
+      <a routerLink="/registro">Crear registro clínico</a>
+    </p>
+  </section>
+</main>
