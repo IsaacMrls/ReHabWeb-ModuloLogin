@@ -1,0 +1,89 @@
+<main class="verification-shell">
+
+  <section class="verification-card">
+
+    <span class="badge">Verificación</span>
+
+    <h1>Ingresa el código</h1>
+
+    <p class="description">
+      Hemos enviado un código de 6 dígitos a tu correo electrónico.
+    </p>
+
+    <form (ngSubmit)="verificarCodigo()">
+
+      <div class="code-inputs">
+
+        <input
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo1"
+          name="codigo1"
+          (input)="moveToNext($event, input2)"
+        />
+
+        <input
+          #input2
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo2"
+          name="codigo2"
+          (input)="moveToNext($event, input3)"
+        />
+
+        <input
+          #input3
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo3"
+          name="codigo3"
+          (input)="moveToNext($event, input4)"
+        />
+
+        <input
+          #input4
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo4"
+          name="codigo4"
+          (input)="moveToNext($event, input5)"
+        />
+
+        <input
+          #input5
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo5"
+          name="codigo5"
+          (input)="moveToNext($event, input6)"
+        />
+
+        <input
+          #input6
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo6"
+          name="codigo6"
+        />
+
+      </div>
+
+      <button type="submit" class="primary-button">
+        Verificar código
+      </button>
+
+    </form>
+
+    <a routerLink="/recuperar-password" class="back-link">
+      ← Volver
+    </a>
+
+  </section>
+
+</main>

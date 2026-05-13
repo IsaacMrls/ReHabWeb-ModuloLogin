@@ -16,9 +16,21 @@ export interface AuthResponse {
   user: AuthUser;
 }
 
+export interface Login2FAStartResponse {
+  requires_2fa: boolean;
+  login_session: string;
+  email_masked: string;
+  message: string;
+}
+
 export interface LoginPayload {
   username: string;
   password: string;
+}
+
+export interface Login2FAVerifyPayload {
+  login_session: string;
+  code: string;
 }
 
 export interface RegisterPayload extends LoginPayload {

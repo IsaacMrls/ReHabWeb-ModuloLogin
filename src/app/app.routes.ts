@@ -17,6 +17,34 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'login-2fa',
+    loadComponent: () =>
+      import('./screens/login-2fa/login-2fa').then(
+        (m) => m.Login2FAComponent,
+      ),
+  },
+  {
+    path: 'recuperar-password',
+    loadComponent: () =>
+      import('./pages/recuperar-password/recuperar-password').then(
+        (m) => m.RecuperarPassword,
+      ),
+  },
+  {
+    path: 'verificar-codigo',
+    loadComponent: () =>
+      import('./pages/verificar-codigo/verificar-codigo').then(
+        (m) => m.VerificarCodigo,
+      ),
+  },
+  {
+    path: 'nueva-password',
+    loadComponent: () =>
+      import('./pages/nueva-password/nueva-password').then(
+        (m) => m.NuevaPassword,
+      ),
+  },
+  {
     path: 'landing',
     loadComponent: () =>
       import('./screens/landing/landing').then((m) => m.LandingComponent),

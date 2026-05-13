@@ -278,4 +278,22 @@ form {
   .switch-link {
     text-align: center;
   }
+  .switch-link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.forgot-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
 }

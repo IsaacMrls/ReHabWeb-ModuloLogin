@@ -5,6 +5,8 @@ import { tap } from 'rxjs/operators';
 import {
   AuthResponse,
   AuthUser,
+  Login2FAStartResponse,
+  Login2FAVerifyPayload,
   LoginPayload,
   RegisterPayload,
 } from '../models/auth.models';
@@ -31,10 +33,40 @@ export class AuthService {
       .pipe(tap((response) => this.persistSession(response)));
   }
 
+  requestLoginCode(payload: LoginPayload) {
+    return this.http.post<Login2FAStartResponse>(`${this.apiUrl}/login/request-code/`, payload);
+  }
+
+  verifyLoginCode(payload: Login2FAVerifyPayload) {
+    return this.http
+      .post<AuthResponse>(`${this.apiUrl}/login/verify-code/`, payload)
+      .pipe(tap((response) => this.persistSession(response)));
+  }
+
   register(payload: RegisterPayload) {
     return this.http
       .post<AuthResponse>(`${this.apiUrl}/register/`, payload)
       .pipe(tap((response) => this.persistSession(response)));
+  }
+
+  sendRecoveryCode(email: string) {
+    return this.http.post('http://127.0.0.1:8000/api/send-code/', {
+      email,
+    });
+  }
+
+  verifyCode(email: string, code: string) {
+    return this.http.post('http://127.0.0.1:8000/api/verify-code/', {
+      email,
+      code,
+    });
+  }
+
+  resetPassword(email: string, new_password: string) {
+    return this.http.post('http://127.0.0.1:8000/api/reset-password/', {
+      email,
+      new_password,
+    });
   }
 
   logout(): void {

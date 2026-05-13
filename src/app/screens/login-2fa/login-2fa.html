@@ -1,0 +1,86 @@
+<main class="verification-shell">
+  <section class="verification-card">
+    <span class="badge">Doble verificacion</span>
+
+    <h1>Confirma tu acceso</h1>
+
+    <p class="description">
+      Enviamos un codigo de 6 digitos a
+      <strong>{{ emailMasked || 'tu correo registrado' }}</strong>.
+    </p>
+
+    <form (ngSubmit)="verifyCode()">
+      <div class="code-inputs">
+        <input
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo1"
+          name="codigo1"
+          (input)="moveToNext($event, input2)"
+        />
+
+        <input
+          #input2
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo2"
+          name="codigo2"
+          (input)="moveToNext($event, input3)"
+        />
+
+        <input
+          #input3
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo3"
+          name="codigo3"
+          (input)="moveToNext($event, input4)"
+        />
+
+        <input
+          #input4
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo4"
+          name="codigo4"
+          (input)="moveToNext($event, input5)"
+        />
+
+        <input
+          #input5
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo5"
+          name="codigo5"
+          (input)="moveToNext($event, input6)"
+        />
+
+        <input
+          #input6
+          type="text"
+          maxlength="1"
+          required
+          [(ngModel)]="codigo6"
+          name="codigo6"
+        />
+      </div>
+
+      @if (apiError()) {
+        <p class="feedback-error">{{ apiError() }}</p>
+      }
+
+      <button type="submit" class="primary-button" [disabled]="isSubmitting()">
+        {{ isSubmitting() ? 'Validando codigo...' : 'Validar y entrar' }}
+      </button>
+    </form>
+
+    <a routerLink="/login" class="back-link">
+      Volver al inicio de sesion
+    </a>
+  </section>
+</main>

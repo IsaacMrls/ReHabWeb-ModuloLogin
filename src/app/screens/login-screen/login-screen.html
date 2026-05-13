@@ -41,13 +41,19 @@
       }
 
       <button type="submit" class="primary-button" [disabled]="isSubmitting()">
-        {{ isSubmitting() ? 'Validando acceso...' : 'Iniciar sesión' }}
+        {{ isSubmitting() ? 'Enviando codigo...' : 'Iniciar sesión' }}
       </button>
     </form>
 
-    <p class="switch-link">
-      ¿No tienes cuenta?
-      <a routerLink="/registro">Crear registro clínico</a>
-    </p>
+    <div class="switch-link">
+  <a routerLink="/recuperar-password" class="forgot-link">
+    ¿Olvidó su contraseña?
+  </a>
+
+  <p>
+    ¿No tienes cuenta?
+    <a routerLink="/registro">Crear registro clínico</a>
+  </p>
+</div>
   </section>
 </main>

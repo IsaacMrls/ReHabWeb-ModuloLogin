@@ -38,11 +38,13 @@ export class LoginScreenComponent {
     this.isSubmitting.set(true);
 
     this.authService
-      .login(this.form.getRawValue())
+      .requestLoginCode(this.form.getRawValue())
       .pipe(finalize(() => this.isSubmitting.set(false)))
       .subscribe({
-        next: () => {
-          void this.router.navigateByUrl('/landing');
+        next: (response) => {
+          localStorage.setItem('login_2fa_session', response.login_session);
+          localStorage.setItem('login_2fa_email_masked', response.email_masked);
+          void this.router.navigateByUrl('/login-2fa');
         },
         error: (error) => {
           const rawMessage = error?.error?.non_field_errors?.[0] ?? error?.error?.detail;
